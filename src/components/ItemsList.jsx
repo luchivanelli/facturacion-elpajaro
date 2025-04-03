@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { useState } from "react";
 import EditItem from "./EditItem"
-import DeleteModal from "./deleteModal";
+import DeleteModal from "./DeleteModal";
 import pencil from "../assets/pencil.svg"
 import trash from "../assets/trash.svg"
 
