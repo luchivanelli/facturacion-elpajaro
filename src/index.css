@@ -14,11 +14,6 @@ body {
   background-image: url("./assets/bg.svg");
 }
 
-.card {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-}
-
 table, table td {
   border: 1px solid white;
 }
