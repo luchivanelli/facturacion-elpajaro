@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #C22116;
+  --color-secondary: #FFA90A;
+}
+
+body {
+  font-family: "Noto Sans SC", sans-serif;
+  background: #181717;
+}
+
+.bg {
+  background-image: url("./assets/bg.svg");
+}
+
+.card {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+table, table td {
+  border: 1px solid white;
+}
