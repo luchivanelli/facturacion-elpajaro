@@ -55,14 +55,14 @@ const ItemsForm = ()=> {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="mx-3 my-6 bg-[#696969] flex flex-col gap-2 items-center justify-center py-3 px-5 text-sm md:mx-0 md:w-full md:text-base">
+        <form onSubmit={handleSubmit} className="my-6 bg-[#696969] flex flex-col gap-2 items-center justify-center py-3 px-5 text-sm md:mx-0 md:w-full md:text-base">
             <div className="flex gap-2 items-center w-full">
                 <label htmlFor="cantidad" className="text-white p-1 font-bold">Cantidad:</label>
                 <input 
                     type="number" 
                     name="cantidad" 
                     id="cantidad"
-                    className="border-b-1 border-white p-1 text-white focus:outline-0 w-full h-full"
+                    className="border-b-1 border-white py-1 text-white focus:outline-0 w-full h-full"
                     onChange={handleChange}
                     value={item.cantidad}
                 />
@@ -73,7 +73,7 @@ const ItemsForm = ()=> {
                     type="text" 
                     name="detalle" 
                     id="detalle" 
-                    className="border-b-1 border-white p-1 text-white focus:outline-0 w-full h-full"
+                    className="border-b-1 border-white py-1 text-white focus:outline-0 w-full h-full"
                     onChange={handleChange}
                     value={item.detalle}
                 />
@@ -85,7 +85,7 @@ const ItemsForm = ()=> {
                     type="number" 
                     name="precio_unitario" 
                     id="precio_unitario" 
-                    className="border-b-1 border-white p-1 text-white focus:outline-0 w-full h-full"
+                    className="border-b-1 border-white py-1 text-white focus:outline-0 w-full h-full"
                     onChange={handleChange}
                     value={item.precio_unitario}
                 />
@@ -97,7 +97,7 @@ const ItemsForm = ()=> {
                     type="number" 
                     name="total" 
                     id="total" 
-                    className="border-b-1 border-white p-1 text-white focus:outline-0 w-full h-full"
+                    className="border-b-1 border-white py-1 text-white focus:outline-0 w-full h-full"
                     onChange={handleChange}
                     value={item.total}
                 />

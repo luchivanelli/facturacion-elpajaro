@@ -3,6 +3,7 @@ import autoTable from "jspdf-autotable";
 import logo from "../assets/logo.png"
 
 const genereteInvoice = (info, items) => {
+    console.log(info)
     const arrayItems = items.map(item => [item.cantidad, item.detalle, `$ ${item.precio_unitario}`, `$ ${item.total}`]);
     let total = 0
 
@@ -65,6 +66,13 @@ const genereteInvoice = (info, items) => {
     doc.text("TOTAL:", 150, finalY);
     doc.rect(170, finalY - 5, 25, 8); // Cuadro para el total
     doc.text(`$ ${total}`, 172, finalY);
+    doc.text("Observaciones:", 14, finalY + 15);
+    doc.setFont("helvetica", "normal");
+    if (info.observaciones != "") {
+        doc.text(info.observaciones, 45, finalY + 15);
+    } else {
+        doc.text("Sin observaciones", 45, finalY + 15);
+    }
     
     doc.save("factura.pdf");
 };

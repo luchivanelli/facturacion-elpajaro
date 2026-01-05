@@ -10,7 +10,7 @@ const InfoList = ()=> {
     }
 
     return (
-        <div className="mx-3 my-6 border-2 border-[#696969] rounded-2xl md:mx-0 md:min-w-[400px]">
+        <div className="my-6 border-2 border-[#696969] rounded-2xl md:mx-0 md:min-w-[400px]">
             <div className="w-full flex justify-between items-center bg-[#696969] text-white rounded-t-[12px] border-b-2 border-[#828282] md:text-lg">
                 <p className="font-bold p-2 text-center w-full">Información del cliente</p>
                 <button onClick={openModal} className="rounded-tr-2xl py-3 px-2 bg-[#01578F] hover:bg-white hover:text-[#01578F] transition-all font-bold cursor-pointer w-[100px] !text-sm md:!text-base">Editar</button>

@@ -27,7 +27,7 @@ const ItemsList = () => {
     });
 
     return (
-        <div className="text-white px-3">
+        <div className="text-white">
             <table className="bg-[#696969] text-sm w-full table-auto border-collapse max-w-[900px] md:mx-auto md:text-base">
                 <thead>
                     <tr className="text-center bg-[#01578F]">
@@ -60,7 +60,7 @@ const ItemsList = () => {
                         </tr>
                     ))}
                     <tr className="font-bold bg-[#01578F] text-end">
-                        <td colSpan="5" className="p-1 md:py-1.5">TOTAL: ${total}</td>
+                        <td colSpan="5" className="p-1 md:py-1.5 pr-3">TOTAL: ${total}</td>
                     </tr>
                 </tbody>
             </table>

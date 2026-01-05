@@ -6,7 +6,8 @@ const initialState = {
     direccion: "",
     vehiculo: "",
     patente: "",
-    kilometraje: ""
+    kilometraje: "",
+    observaciones: ""
 }
 
 const convertDate = (fecha) => {
@@ -29,9 +30,12 @@ const infoSlice = createSlice({
       state.vehiculo = vehiculo;
       state.patente = patente;
       state.kilometraje = kilometraje;
+    },
+    guardarInfoObservaciones: (state, action) => {
+      state.observaciones = action.payload;
     }
   },
 });
 
-export const { guardarInfo } = infoSlice.actions;
+export const { guardarInfo, guardarInfoObservaciones } = infoSlice.actions;
 export default infoSlice.reducer;
