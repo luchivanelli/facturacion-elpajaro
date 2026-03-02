@@ -68,13 +68,23 @@ const genereteInvoice = (info, items) => {
     doc.text(`$ ${total}`, 172, finalY);
     doc.text("Observaciones:", 14, finalY + 15);
     doc.setFont("helvetica", "normal");
-    if (info.observaciones != "") {
-        doc.text(info.observaciones, 45, finalY + 15);
-    } else {
-        doc.text("Sin observaciones", 45, finalY + 15);
-    }
-    
-    doc.save("factura.pdf");
-};
+
+    // Definir ancho máximo disponible
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const marginLeft = 45;
+    const marginRight = 14;
+    const maxWidth = pageWidth - marginLeft - marginRight;
+
+    const textoObservaciones = info.observaciones && info.observaciones.trim() !== ""
+        ? info.observaciones
+        : "Sin observaciones";
+
+    // Dividir texto automáticamente
+    const textoDividido = doc.splitTextToSize(textoObservaciones, maxWidth);
+
+    // Dibujar texto con salto de línea automático
+    doc.text(textoDividido, marginLeft, finalY + 15);
+        doc.save("factura.pdf");
+    };
 
 export default genereteInvoice;
