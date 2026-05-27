@@ -1,19 +1,58 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap'); */
 
 :root {
-  --color-primary: #C22116;
-  --color-secondary: #FFA90A;
+  --carbon: #0f1117;
+  --carbon-2: #181c26;
+  --carbon-3: #1e2330;
+  --steel: #252b3a;
+  --steel-light: #2e3548;
+  --amber: #f59e0b;
+  --amber-dark: #d97706;
+  --amber-glow: rgba(245,158,11,0.15);
+  --red: #ef4444;
+  --green: #22c55e;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border: rgba(245,158,11,0.2);
+  --border-subtle: rgba(255,255,255,0.06);
 }
+
+/* * { box-sizing: border-box; margin: 0; padding: 0; } */
 
 body {
-  font-family: "Noto Sans SC", sans-serif;
-  background: #181717;
+  background: var(--carbon);
+  font-family: 'Barlow', sans-serif;
+  color: var(--text-primary);
+  min-height: 100vh;
 }
 
-.bg {
-  background-image: url("./assets/bg.svg");
+.font-display { font-family: 'Barlow Condensed', sans-serif; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--carbon-2); }
+::-webkit-scrollbar-thumb { background: var(--steel-light); border-radius: 3px; }
+
+/* Input reset */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes pulse-amber {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(245,158,11,0); }
 }
 
-table, table td {
-  border: 1px solid white;
-}
+.animate-fadein { animation: fadeIn 0.3s ease both; }
+.animate-slideup { animation: slideUp 0.25s ease both; }

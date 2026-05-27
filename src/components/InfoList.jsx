@@ -1,30 +1,42 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
-const InfoList = ()=> {
-    const info = useSelector(state => state.info)
+const InfoList = ({ onEdit }) => {
+  const info = useSelector((state) => state.info);
 
-    const openModal = ()=> {
-        const form = document.getElementById("info-form")
-        form.classList.remove("hidden")
-        form.classList.add("flex")
-    }
+  const Field = ({ label, value }) => (
+    <div className="flex flex-col gap-0.5">
+      <span className="text-xs md:text-sm font-display font-700 tracking-widest text-[var(--amber)] uppercase">{label}</span>
+      <span className="text-[var(--text-primary)] font-500 text-sm md:text-base">{value || <span className="text-[var(--text-muted)] italic">—</span>}</span>
+    </div>
+  );
 
-    return (
-        <div className="my-6 border-2 border-[#696969] rounded-2xl md:mx-0 md:min-w-[400px]">
-            <div className="w-full flex justify-between items-center bg-[#696969] text-white rounded-t-[12px] border-b-2 border-[#828282] md:text-lg">
-                <p className="font-bold p-2 text-center w-full">Información del cliente</p>
-                <button onClick={openModal} className="rounded-tr-2xl py-3 px-2 bg-[#01578F] hover:bg-white hover:text-[#01578F] transition-all font-bold cursor-pointer w-[100px] !text-sm md:!text-base">Editar</button>
-            </div>
-            <ul className="flex flex-col gap-x-3 gap-y-1 py-3 px-5 text-sm md:text-base font-medium">
-                <li className="text-white"><b>Fecha</b>: {info.fecha}</li>
-                <li className="text-white"><b>Nombre</b>: {info.cliente}</li>
-                <li className="text-white"><b>Dirección</b>: {info.direccion}</li>
-                <li className="text-white"><b>Vehículo</b>: {info.vehiculo}</li>
-                <li className="text-white"><b>Pantente</b>: {info.patente}</li>
-                <li className="text-white"><b>Kilometraje</b>: {info.kilometraje}</li>
-            </ul>
+  return (
+    <div className="bg-[var(--carbon-2)] border border-[var(--border-subtle)] rounded-xl overflow-hidden md:min-w-[360px]">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--border-subtle)] bg-[var(--steel)]">
+        <h3 className="font-display font-700 text-base tracking-wider uppercase text-[var(--text-secondary)]">
+          Cliente
+        </h3>
+        <button
+          onClick={onEdit}
+          className="text-xs font-display font-700 tracking-wider uppercase bg-[var(--amber)] text-[var(--carbon)] px-3 py-1.5 rounded-md hover:bg-[var(--amber-dark)] transition-all cursor-pointer"
+        >
+          Editar
+        </button>
+      </div>
+      <div className="p-4 grid grid-cols-2 gap-x-4 gap-y-3">
+        <Field label="Fecha" value={info.fecha} />
+        <Field label="Kilometraje" value={info.kilometraje} />
+        <div className="col-span-2">
+          <Field label="Cliente" value={info.cliente} />
         </div>
-    )
-}
+        <div className="col-span-2">
+          <Field label="Dirección" value={info.direccion} />
+        </div>
+        <Field label="Vehículo" value={info.vehiculo} />
+        <Field label="Patente" value={info.patente} />
+      </div>
+    </div>
+  );
+};
 
-export default InfoList
+export default InfoList;

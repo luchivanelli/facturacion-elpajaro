@@ -1,22 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    fecha: "",
-    cliente: "",
-    direccion: "",
-    vehiculo: "",
-    patente: "",
-    kilometraje: "",
-    observaciones: ""
-}
+  fecha: "",
+  cliente: "",
+  direccion: "",
+  vehiculo: "",
+  patente: "",
+  kilometraje: "",
+  observaciones: "",
+  entrega: "",
+};
 
 const convertDate = (fecha) => {
   if (fecha) {
     const [anio, mes, dia] = fecha.split("-");
     return `${dia}-${mes}-${anio}`;
   }
+  return "";
 };
-
 
 const infoSlice = createSlice({
   name: "info",
@@ -33,9 +34,12 @@ const infoSlice = createSlice({
     },
     guardarInfoObservaciones: (state, action) => {
       state.observaciones = action.payload;
-    }
+    },
+    guardarEntrega: (state, action) => {
+      state.entrega = action.payload;
+    },
   },
 });
 
-export const { guardarInfo, guardarInfoObservaciones } = infoSlice.actions;
+export const { guardarInfo, guardarInfoObservaciones, guardarEntrega } = infoSlice.actions;
 export default infoSlice.reducer;
